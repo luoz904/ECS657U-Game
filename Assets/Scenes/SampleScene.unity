@@ -3331,7 +3331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417027507529676578, guid: 3bb7080f0a8a43e4b82328033f0df74b, type: 3}
       propertyPath: m_Name
-      value: StartPoint (1)
+      value: StartPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6821,6 +6821,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6935629282012238677, guid: 3bb7080f0a8a43e4b82328033f0df74b, type: 3}
   m_PrefabInstance: {fileID: 938908708}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &943531306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943531308}
+  - component: {fileID: 943531307}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &943531307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943531306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5aa7bacf5cce14a984fceafa0dcac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1793434822}
+  spawnPoint: {fileID: 425000851}
+  timeBetweenWaves: 5
+--- !u!4 &943531308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943531306}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.972282, y: 25.589102, z: 16.550503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955623210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9380,7 +9427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417027507529676578, guid: 3bb7080f0a8a43e4b82328033f0df74b, type: 3}
       propertyPath: m_Name
-      value: StartPoint
+      value: EndPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12726,6 +12773,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6935629282012238677, guid: 3bb7080f0a8a43e4b82328033f0df74b, type: 3}
   m_PrefabInstance: {fileID: 1790277089}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1793434817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5112116763416318651, guid: e1c82d430da91e54c9b8a6f3f14f687c, type: 3}
+  m_PrefabInstance: {fileID: 2222691808600156011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1793434818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793434817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37366034d182de44bc66e1346645c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+--- !u!4 &1793434822 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3390719684588247075, guid: e1c82d430da91e54c9b8a6f3f14f687c, type: 3}
+  m_PrefabInstance: {fileID: 2222691808600156011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1809637118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15235,7 +15305,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5112116763416318651, guid: e1c82d430da91e54c9b8a6f3f14f687c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1793434818}
   m_SourcePrefab: {fileID: 100100000, guid: e1c82d430da91e54c9b8a6f3f14f687c, type: 3}
 --- !u!1001 &7129826336812851962
 PrefabInstance:
@@ -15366,6 +15439,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 943531308}
   - {fileID: 705507995}
   - {fileID: 955623214}
   - {fileID: 697006381}
