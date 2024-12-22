@@ -2476,7 +2476,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -7327,6 +7327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 30
   borderPad: 10
+  scrollSpeed: 5
+  minY: 10
+  maxY: 80
 --- !u!1001 &964831646
 PrefabInstance:
   m_ObjectHideFlags: 0
