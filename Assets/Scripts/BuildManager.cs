@@ -8,11 +8,9 @@ public class BuildManager : MonoBehaviour
     
     public static BuildManager instance;
 
-    private GameObject mageToBuild;
+    private MageBlueprint mageToBuild;
 
-
-    public GameObject standardMagePrefab;
-    public GameObject anotherMagePrefab;
+    public bool canBuild { get { return mageToBuild != null; }}
 
     void Awake()
     {
@@ -20,14 +18,24 @@ public class BuildManager : MonoBehaviour
             instance = this;
     }
 
-
-    public GameObject GetMageToBuild()
-    {
-        return mageToBuild;
+    public void SetMageToBuild(MageBlueprint mage) {
+        mageToBuild = mage;
     }
 
-    public void SetMageToBuild(MageBlueprint mage) {
-        mageToBuild = mage.prefab;
+    public bool buildMageOn(NodeControl node) {
+
+        if (PlayerStats.Money < mageToBuild.cost) {
+            Debug.Log("Not enough money!");
+            return false;
+        }
+
+        PlayerStats.Money -= mageToBuild.cost;
+
+        GameObject mage = Instantiate(mageToBuild.prefab, node.transform.position, node.transform.rotation);
+        if (mage != null) {
+            Debug.Log("Money build, money left " + PlayerStats.Money);
+        }
+        return mage != null;
     }
 
 }

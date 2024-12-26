@@ -16,12 +16,6 @@ public class shopManager : MonoBehaviour
         buildManager = BuildManager.instance;    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void BuyStandardMage() {
         Debug.Log("Buy mage!");
         buildManager.SetMageToBuild(standardMage);

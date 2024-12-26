@@ -7,7 +7,7 @@ public class NodeControl : MonoBehaviour
 {
     public Color hoverColor;
 
-    private GameObject currentBuild;
+    private bool hasBuild;
 
     private Renderer thisRenderer;
     private Color defaultColor;
@@ -19,7 +19,7 @@ public class NodeControl : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetMageToBuild() == null)
+        if (!buildManager.canBuild)
             return;
         thisRenderer.material.color = hoverColor;
     }
@@ -34,16 +34,15 @@ public class NodeControl : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetMageToBuild() == null)
+        if (!buildManager.canBuild)
             return;
 
-        if (currentBuild != null)
+        if (hasBuild)
         {
             Debug.Log("Can't build there!");
             return;
         }
-        GameObject mageToBuild = buildManager.GetMageToBuild();
-        currentBuild = Instantiate(mageToBuild, transform.position, transform.rotation);
+        hasBuild = buildManager.buildMageOn(this);
     }
 
     // Start is called before the first frame update
