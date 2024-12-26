@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-
+    
     public static BuildManager instance;
 
     private GameObject mageToBuild;
 
+
     public GameObject standardMagePrefab;
+    public GameObject anotherMagePrefab;
 
     void Awake()
     {
@@ -24,9 +26,8 @@ public class BuildManager : MonoBehaviour
         return mageToBuild;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        mageToBuild = standardMagePrefab;
+    public void SetMageToBuild(MageBlueprint mage) {
+        mageToBuild = mage.prefab;
     }
+
 }
