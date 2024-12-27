@@ -8,6 +8,8 @@ public class BuildManager : MonoBehaviour
     
     public static BuildManager instance;
 
+    public GameObject buildEffet;
+
     private MageBlueprint mageToBuild;
 
     public bool hasMageToBuild { get { return mageToBuild != null; }}
@@ -36,7 +38,13 @@ public class BuildManager : MonoBehaviour
         GameObject mage = Instantiate(mageToBuild.prefab, node.transform.position, node.transform.rotation);
         if (mage != null) {
             Debug.Log("Money build, money left " + PlayerStats.Money);
+
+            GameObject effect = Instantiate(buildEffet, node.transform.position, node.transform.rotation);
+
+            Destroy(effect, 5f);
+
         }
+
         return mage != null;
     }
 
