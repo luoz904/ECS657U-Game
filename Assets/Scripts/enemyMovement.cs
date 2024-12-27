@@ -33,10 +33,16 @@ public class enemyMovement : MonoBehaviour
         wavePointIndex++;
         if (wavePointIndex >= waypoints.points.Length)
         {
-            Destroy(gameObject);
+            EndPath();
         }
         else
             target = waypoints.points[wavePointIndex];
+    }
+
+    void EndPath()
+    {
+        PlayerStats.DecrementLives();
+        Destroy(gameObject);
     }
 }
 
