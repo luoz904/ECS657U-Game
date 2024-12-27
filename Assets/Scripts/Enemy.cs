@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 
-public class enemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 10f;
+    public int health = 100;
+
+    public int goldAward = 50;
 
     private Transform target;
     private int wavePointIndex = 0;
@@ -14,6 +17,19 @@ public class enemyMovement : MonoBehaviour
     void Start()
     {
         target = waypoints.points[wavePointIndex];
+    }
+
+    public void TakeDamage(int damage) {
+        health -= damage;
+
+        if (health <= 0) {
+            Die();
+        }
+    }
+
+    private void Die() {
+        PlayerStats.Money += goldAward;
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
