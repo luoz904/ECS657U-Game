@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     public int goldAward = 50;
 
+    public GameObject deathEffect;
+
     private Transform target;
     private int wavePointIndex = 0;
 
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour
 
     private void Die() {
         PlayerStats.Money += goldAward;
+        GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(effect, 5f);
         Destroy(gameObject);
     }
 
