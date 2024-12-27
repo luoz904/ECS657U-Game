@@ -120,3 +120,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   health: 100
+  goldAward: 50
+  deathEffect: {fileID: 5711301453923240534, guid: 5a7de29cc8b6a9e45b06380da2daa7ca, type: 3}
