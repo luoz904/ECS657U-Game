@@ -7,6 +7,8 @@ public class NodeControl : MonoBehaviour
 {
     public Color hoverColor;
 
+    public Color noMoneyColor;
+
     private bool hasBuild;
 
     private Renderer thisRenderer;
@@ -19,9 +21,13 @@ public class NodeControl : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!buildManager.canBuild)
+        if (!buildManager.hasMageToBuild)
             return;
-        thisRenderer.material.color = hoverColor;
+
+        if (buildManager.hasMoneyToBuild)
+            thisRenderer.material.color = hoverColor;
+        else
+            thisRenderer.material.color = noMoneyColor;
     }
 
     void OnMouseExit()
@@ -34,7 +40,7 @@ public class NodeControl : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!buildManager.canBuild)
+        if (!buildManager.hasMageToBuild)
             return;
 
         if (hasBuild)
