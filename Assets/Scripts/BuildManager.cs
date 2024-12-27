@@ -10,7 +10,9 @@ public class BuildManager : MonoBehaviour
 
     private MageBlueprint mageToBuild;
 
-    public bool canBuild { get { return mageToBuild != null; }}
+    public bool hasMageToBuild { get { return mageToBuild != null; }}
+
+    public bool hasMoneyToBuild { get { return PlayerStats.Money >= mageToBuild.cost; }}
 
     void Awake()
     {
@@ -24,7 +26,7 @@ public class BuildManager : MonoBehaviour
 
     public bool buildMageOn(NodeControl node) {
 
-        if (PlayerStats.Money < mageToBuild.cost) {
+        if (!hasMoneyToBuild) {
             Debug.Log("Not enough money!");
             return false;
         }

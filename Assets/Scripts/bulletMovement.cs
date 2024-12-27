@@ -65,6 +65,7 @@ public class bulletMovement : MonoBehaviour
     }
 
     void Damage(Transform enemy) {
+        PlayerStats.Money += 50;
         Destroy(enemy.gameObject);
     }
 
