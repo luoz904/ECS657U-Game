@@ -38,13 +38,15 @@ public class enemySpawner : MonoBehaviour
 
         for (int i = 0; i < waveNumber; i++)
         {
-            SpawnEnemy();
+            SpawnEnemy(waveNumber * 10);
             yield return new WaitForSeconds(0.5f);
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(int healthIncrement)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Transform enemyRef = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Enemy e = enemyRef.GetComponent<Enemy>();
+        e.health += healthIncrement;
     }
 }
