@@ -10,12 +10,15 @@ public class PlayerStats : MonoBehaviour
     public int startMoney = 400;
     public int startLives = 20;
 
+    public static int SurvivedRounds;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Money = startMoney;
         Lives = startLives;
+        SurvivedRounds = 0;
     }
 
     public static void DecrementLives() {

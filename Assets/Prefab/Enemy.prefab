@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51eebb5e877eb534a998cee14cd752de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  waveNumber: 0
   health: 30
   goldAward: 10
   deathEffect: {fileID: 5711301453923240534, guid: 5a7de29cc8b6a9e45b06380da2daa7ca, type: 3}
@@ -134,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b607282fcf5e3349b22683d87bd702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  startMoveSpeed: 50
