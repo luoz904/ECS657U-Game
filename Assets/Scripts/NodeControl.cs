@@ -40,14 +40,15 @@ public class NodeControl : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
+        if (hasBuild)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
         if (!buildManager.hasMageToBuild)
             return;
 
-        if (hasBuild)
-        {
-            Debug.Log("Can't build there!");
-            return;
-        }
         hasBuild = buildManager.buildMageOn(this);
     }
 

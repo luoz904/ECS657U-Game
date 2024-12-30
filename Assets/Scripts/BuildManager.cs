@@ -11,6 +11,10 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffet;
 
     private MageBlueprint mageToBuild;
+    
+    private NodeControl selectedNode;
+
+    public NodeUI nodeUI;
 
     public bool hasMageToBuild { get { return mageToBuild != null; }}
 
@@ -24,6 +28,7 @@ public class BuildManager : MonoBehaviour
 
     public void SetMageToBuild(MageBlueprint mage) {
         mageToBuild = mage;
+        DeselectNode();
     }
 
     public bool buildMageOn(NodeControl node) {
@@ -46,6 +51,21 @@ public class BuildManager : MonoBehaviour
         }
 
         return mage != null;
+    }
+
+    public void SelectNode(NodeControl node) {
+        if (selectedNode == node) {
+            DeselectNode();
+            return;
+        }
+        selectedNode = node;
+        mageToBuild = null;
+        nodeUI.SelectedNode(selectedNode);
+    }
+
+    public void DeselectNode() {
+        selectedNode = null;
+        nodeUI.Hide();
     }
 
 }
