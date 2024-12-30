@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   
+    public int id;
+    public int waveNumber;
     public float health = 100;
 
     public int goldAward = 50;
@@ -29,6 +31,5 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 5f);
         Destroy(gameObject);
     }
-
 }
 

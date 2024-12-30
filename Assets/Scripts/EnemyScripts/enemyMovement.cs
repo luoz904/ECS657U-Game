@@ -43,6 +43,10 @@ public class enemyMovement : MonoBehaviour
     void EndPath()
     {
         PlayerStats.DecrementLives();
+        Enemy e = GetComponent<Enemy>();
+        if (e != null)
+            PlayerStats.SurvivedRounds = e.waveNumber;
+        
         Destroy(gameObject);
     }
 

@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class enemySpawner : MonoBehaviour
 {
 
+    private int lastEnemyId = 0;
+    
+    private int waveNumber = 0;
+
     public Transform enemyPrefab;
 
     public Transform spawnPoint;
@@ -15,8 +19,6 @@ public class enemySpawner : MonoBehaviour
     private float countDown = 2f;
 
     public Text waveCountDownText;
-
-    private int waveNumber = 0;
 
     // Update is called once per frame
     void Update()
@@ -45,8 +47,11 @@ public class enemySpawner : MonoBehaviour
 
     void SpawnEnemy(int healthIncrement)
     {
+        lastEnemyId++;
         Transform enemyRef = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         Enemy e = enemyRef.GetComponent<Enemy>();
         e.health += healthIncrement;
+        e.id = lastEnemyId;
+        e.waveNumber = waveNumber;
     }
 }
