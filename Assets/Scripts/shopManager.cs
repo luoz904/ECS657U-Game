@@ -8,6 +8,8 @@ public class shopManager : MonoBehaviour
 
     public MageBlueprint anotherMage;
 
+    public MageBlueprint superMage;
+
     private BuildManager buildManager;
 
     // Start is called before the first frame update
@@ -24,5 +26,10 @@ public class shopManager : MonoBehaviour
     public void BuyAnotherMage() {
         Debug.Log("Buy another mage!");
         buildManager.SetMageToBuild(anotherMage);
+    }
+
+    public void BuySuperMage() {
+        Debug.Log("Buy super mage!");
+        buildManager.SetMageToBuild(superMage);
     }
 }

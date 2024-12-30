@@ -8,7 +8,7 @@ public class bulletMovement : MonoBehaviour
     private Transform target;
     public float speed = 10f;
 
-    public int damage = 50;
+    public float damage = 50.0f;
 
     public float explodeRadius = 0f;
 
