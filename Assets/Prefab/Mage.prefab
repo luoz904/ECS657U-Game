@@ -102,7 +102,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -209,7 +209,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -317,7 +317,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -370,9 +370,13 @@ MonoBehaviour:
   range: 15
   fireRate: 1
   turnSpeed: 10
+  bulletPrefab: {fileID: 5071696582067698749, guid: e84a5584a93801b4cb93a25ca95167b7, type: 3}
+  useLaser: 0
+  slowPercentage: 0.5
+  damageOverTime: 30
+  lineRenderer: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 429085433644135826}
-  bulletPrefab: {fileID: 5071696582067698749, guid: e84a5584a93801b4cb93a25ca95167b7, type: 3}
   firePoint: {fileID: 8006593135038573947}
 --- !u!1 &7728518986016640613
 GameObject:
@@ -477,7 +481,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
