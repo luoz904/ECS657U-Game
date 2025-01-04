@@ -1,0 +1,19 @@
+public enum EnemyState
+	{
+		None,
+		BattleIdle,
+		Idle,
+		Walk,
+		Run,
+		DefenseStart1,
+		DefenseStart2,
+		DefenseEnd,
+		Attack1,
+		Attack2,
+		Attack3,
+		Jump,
+		Die1,
+		Die2,
+		Defense1,
+		Defense2
+	}
