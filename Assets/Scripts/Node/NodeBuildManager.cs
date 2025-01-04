@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BuildManager : MonoBehaviour
+public class NodeBuildManager : MonoBehaviour
 {
     
-    public static BuildManager instance;
+    public static NodeBuildManager instance;
 
     public GameObject buildEffet;
 

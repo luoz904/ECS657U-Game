@@ -6,15 +6,12 @@ using UnityEngine.EventSystems;
 public class NodeControl : MonoBehaviour
 {
     public Color hoverColor;
-
     public Color noMoneyColor;
 
     private bool hasBuild;
-
     private Renderer thisRenderer;
     private Color defaultColor;
-
-    private BuildManager buildManager;
+    private NodeBuildManager buildManager;
 
     void OnMouseEnter()
     {
@@ -55,7 +52,7 @@ public class NodeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buildManager = BuildManager.instance;
+        buildManager = NodeBuildManager.instance;
         thisRenderer = GetComponent<Renderer>();
         defaultColor = thisRenderer.material.color;
     }
