@@ -7,31 +7,11 @@ public class EnemyGoblinAnimator : MonoBehaviour
 
 	public bool isControlEnabled = false;
 	private Animator anim;
-	
+
 	// Use this for initialization
-	void Start()
+	public void Start()
 	{
 		anim = GetComponent<Animator>();
-	}
-
-	enum AnimationState
-	{
-		None,
-		BattleIdle,
-		Idle,
-		Walk,
-		Run,
-		DefenseStart1,
-		DefenseStart2,
-		DefenseEnd,
-		Attack1,
-		Attack2,
-		Attack3,
-		Jump,
-		Die1,
-		Die2,
-		Defense1,
-		Defense2
 	}
 
 	void SetAnimationCommand(string cmd, int value)
@@ -39,53 +19,53 @@ public class EnemyGoblinAnimator : MonoBehaviour
 		anim.SetInteger(cmd, value);
 	}
 
-	void SetAnimationState(AnimationState state)
+	public void SetAnimationState(EnemyState state)
 	{
 		switch (state)
 		{
-			case AnimationState.Idle:
+			case EnemyState.Idle:
 				SetAnimationCommand("battle", 0);
 				break;
-			case AnimationState.BattleIdle:
+			case EnemyState.BattleIdle:
 				SetAnimationCommand("battle", 1);
 				break;
-			case AnimationState.Walk:
+			case EnemyState.Walk:
 				SetAnimationCommand("moving", 1);
 				break;
-			case AnimationState.Run:
+			case EnemyState.Run:
 				SetAnimationCommand("moving", 2);
 				break;
-			case AnimationState.DefenseStart1:
+			case EnemyState.DefenseStart1:
 				SetAnimationCommand("moving", 6);
 				break;
-			case AnimationState.DefenseStart2:
+			case EnemyState.DefenseStart2:
 				SetAnimationCommand("moving", 8);
 				break;
-			case AnimationState.DefenseEnd:
+			case EnemyState.DefenseEnd:
 				SetAnimationCommand("moving", 9);
 				break;
-			case AnimationState.Attack1:
+			case EnemyState.Attack1:
 				SetAnimationCommand("moving", 3);
 				break;
-			case AnimationState.Attack2:
+			case EnemyState.Attack2:
 				SetAnimationCommand("moving", 4);
 				break;
-			case AnimationState.Attack3:
+			case EnemyState.Attack3:
 				SetAnimationCommand("moving", 5);
 				break;
-			case AnimationState.Jump:
+			case EnemyState.Jump:
 				SetAnimationCommand("moving", 7);
 				break;
-			case AnimationState.Die1:
+			case EnemyState.Die1:
 				SetAnimationCommand("moving", 12);
 				break;
-			case AnimationState.Die2:
+			case EnemyState.Die2:
 				SetAnimationCommand("moving", 13);
 				break;
-			case AnimationState.Defense1:
+			case EnemyState.Defense1:
 				SetAnimationCommand("moving", 10);
 				break;
-			case AnimationState.Defense2:
+			case EnemyState.Defense2:
 				SetAnimationCommand("moving", 11);
 				break;
 			default:
@@ -93,19 +73,19 @@ public class EnemyGoblinAnimator : MonoBehaviour
 		}
 	}
 
-	private AnimationState MapInpuToAnimationState()
+	private EnemyState MapInpuToAnimationState()
 	{
 		bool battleMode = false;
-		AnimationState state = AnimationState.None;
+		EnemyState state = EnemyState.None;
 
 		if (Input.GetKey("2")) //battle_idle
 		{
-			state = AnimationState.BattleIdle;
+			state = EnemyState.BattleIdle;
 			battleMode = true;
 		}
 		if (Input.GetKey("1")) //idle
 		{
-			state = AnimationState.Idle;
+			state = EnemyState.Idle;
 			battleMode = false;
 		}
 		if (Input.GetKey("up"))
@@ -113,64 +93,64 @@ public class EnemyGoblinAnimator : MonoBehaviour
 			//moving
 			if (battleMode == false)
 			{
-				state = AnimationState.Walk;
+				state = EnemyState.Walk;
 				//walk
 				//runSpeed = 1.0f;
 			}
 			else
 			{
-				state = AnimationState.Run;
+				state = EnemyState.Run;
 				//run
 				//runSpeed = 2.6f;
 			}
 		}
 		else
 		{
-			state = AnimationState.Idle;
+			state = EnemyState.Idle;
 		}
 
 		if (Input.GetKeyDown("m")) //defence_start
 		{
-			state = AnimationState.DefenseStart1;
+			state = EnemyState.DefenseStart1;
 
 		}
 
 		if (Input.GetKeyDown("p")) // defence_start
 		{
-			state = AnimationState.DefenseStart2;
+			state = EnemyState.DefenseStart2;
 		}
 		if (Input.GetKeyUp("p")) // defence_end
 		{
-			state = AnimationState.DefenseEnd;
+			state = EnemyState.DefenseEnd;
 		}
 
 		if (Input.GetMouseButtonDown(0)) //attack
 		{
-			state = AnimationState.Attack1;
+			state = EnemyState.Attack1;
 		}
 		if (Input.GetMouseButtonDown(1)) //alt attack1
 		{
-			state = AnimationState.Attack2;
+			state = EnemyState.Attack2;
 
 		}
 		if (Input.GetMouseButtonDown(2)) //alt attack2
 		{
-			state = AnimationState.Attack3;
+			state = EnemyState.Attack3;
 		}
 
 		if (Input.GetKeyDown("space")) //jump
 		{
-			state = AnimationState.Jump;
+			state = EnemyState.Jump;
 		}
 
 
 		if (Input.GetKeyDown("o")) //die_1
 		{
-			state = AnimationState.Die1;
+			state = EnemyState.Die1;
 		}
 		if (Input.GetKeyDown("i")) //die_2
 		{
-			state = AnimationState.Die2;
+			state = EnemyState.Die2;
 		}
 
 		if (Input.GetKeyDown("u")) //defence
@@ -178,11 +158,11 @@ public class EnemyGoblinAnimator : MonoBehaviour
 			int n = Random.Range(0, 2);
 			if (n == 0)
 			{
-				state = AnimationState.Defense1;
+				state = EnemyState.Defense1;
 			}
 			else
 			{
-				state = AnimationState.Defense2;
+				state = EnemyState.Defense2;
 			}
 		}
 		return state;
@@ -193,7 +173,7 @@ public class EnemyGoblinAnimator : MonoBehaviour
 	{
 		if (isControlEnabled)
 		{
-			AnimationState state = MapInpuToAnimationState();
+			EnemyState state = MapInpuToAnimationState();
 			SetAnimationState(state);
 		}
 	}

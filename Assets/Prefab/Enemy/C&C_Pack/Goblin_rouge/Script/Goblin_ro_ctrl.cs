@@ -19,10 +19,8 @@ public class Goblin_ro_ctrl : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		anim = GetComponent<Animator>();
 		controller = GetComponent<CharacterController>();
-
 	}
 
 	// Update is called once per frame

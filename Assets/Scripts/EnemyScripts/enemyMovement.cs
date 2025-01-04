@@ -11,24 +11,36 @@ public class enemyMovement : MonoBehaviour
     private float currentMoveSpeed;
 
     private int wavePointIndex = 0;
+
+    private EnemyController controller;
+
     void Start()
     {
+        controller = GetComponent<EnemyController>();
         target = waypoints.points[wavePointIndex];
         currentMoveSpeed = startMoveSpeed;
     }
 
     void Update()
     {
-        UnityEngine.Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * currentMoveSpeed * Time.deltaTime, Space.World);
+        MoveToTarget();
         LockOnTarget();
-
         if (UnityEngine.Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWaypoint();
         }
 
         currentMoveSpeed = startMoveSpeed;
+    }
+
+    void MoveToTarget()
+    {
+        UnityEngine.Vector3 dir = target.position - transform.position;
+        transform.Translate(dir.normalized * currentMoveSpeed * Time.deltaTime, Space.World);
+        if (dir.magnitude >= 0)
+        {
+            controller.OnMoveForward();
+        }
     }
 
     void LockOnTarget()
@@ -56,7 +68,7 @@ public class enemyMovement : MonoBehaviour
         Enemy e = GetComponent<Enemy>();
         if (e != null)
             PlayerStats.SurvivedRounds = e.waveNumber;
-        
+
         Destroy(gameObject);
     }
 
