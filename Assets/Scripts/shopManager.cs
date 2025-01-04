@@ -10,12 +10,12 @@ public class shopManager : MonoBehaviour
 
     public MageBlueprint superMage;
 
-    private BuildManager buildManager;
+    private NodeBuildManager buildManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        buildManager = BuildManager.instance;    
+        buildManager = NodeBuildManager.instance;    
     }
 
     public void BuyStandardMage() {
