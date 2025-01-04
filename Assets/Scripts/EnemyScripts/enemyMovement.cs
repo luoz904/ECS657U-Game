@@ -7,6 +7,7 @@ public class enemyMovement : MonoBehaviour
 
     private Transform target;
     public float startMoveSpeed = 10f;
+    public float turnSpeed = 60.0f;
     private float currentMoveSpeed;
 
     private int wavePointIndex = 0;
@@ -20,6 +21,7 @@ public class enemyMovement : MonoBehaviour
     {
         UnityEngine.Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * currentMoveSpeed * Time.deltaTime, Space.World);
+        LockOnTarget();
 
         if (UnityEngine.Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
@@ -27,6 +29,14 @@ public class enemyMovement : MonoBehaviour
         }
 
         currentMoveSpeed = startMoveSpeed;
+    }
+
+    void LockOnTarget()
+    {
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.deltaTime).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     void GetNextWaypoint()

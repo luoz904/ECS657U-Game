@@ -117,9 +117,6 @@ public class Goblin_ro_ctrl : MonoBehaviour
 			else { anim.SetInteger("moving", 11); }
 		}
 
-
-
-
 		if (controller.isGrounded)
 		{
 			moveDirection = transform.forward * Input.GetAxis("Vertical") * speed * runSpeed;
