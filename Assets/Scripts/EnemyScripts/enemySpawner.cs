@@ -7,18 +7,28 @@ public class enemySpawner : MonoBehaviour
 {
 
     private int lastEnemyId = 0;
-    
+
     private int waveNumber = 0;
 
     public Transform enemyPrefab;
 
-    public Transform spawnPoint;
+    public Transform route;
 
     public float timeBetweenWaves = 5f;
 
     private float countDown = 2f;
 
     public Text waveCountDownText;
+
+    private Transform spawnPoint;
+
+    private Transform path;
+
+    void Start()
+    {
+        spawnPoint = route.GetChild(0);
+        path = route.GetChild(1);
+    }
 
     // Update is called once per frame
     void Update()
@@ -47,11 +57,21 @@ public class enemySpawner : MonoBehaviour
 
     void SpawnEnemy(int healthIncrement)
     {
+        Debug.Log("New enemy spawned!");
         lastEnemyId++;
         Transform enemyRef = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        Enemy e = enemyRef.GetComponent<Enemy>();
-        e.health += healthIncrement;
-        e.id = lastEnemyId;
-        e.waveNumber = waveNumber;
+        EnemyController enemyController = enemyRef.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            Debug.Log("New controller found!");
+            enemyController.status.health += healthIncrement;
+            enemyController.status.id = lastEnemyId;
+            enemyController.status.waveNumber = waveNumber;
+
+            enemyController.router.SetRoute(path);
+            Transform target = enemyController.router.GetCurrentWaypoint();
+            enemyController.mover.SetTarget(target);
+        }
     }
 }

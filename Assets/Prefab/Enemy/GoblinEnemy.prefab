@@ -1555,10 +1555,11 @@ GameObject:
   - component: {fileID: 461918}
   - component: {fileID: 9507038}
   - component: {fileID: 14348168}
-  - component: {fileID: 7595564364472627367}
+  - component: {fileID: -9199564358063417247}
   - component: {fileID: 4702055588649516520}
   - component: {fileID: 2440850427582087252}
   - component: {fileID: 5114716512651007861}
+  - component: {fileID: 1799015247826664895}
   m_Layer: 0
   m_Name: GoblinEnemy
   m_TagString: Enemy
@@ -1631,7 +1632,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2.3, z: 0}
---- !u!114 &7595564364472627367
+--- !u!114 &-9199564358063417247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1646,6 +1647,7 @@ MonoBehaviour:
   animator: {fileID: 4702055588649516520}
   mover: {fileID: 2440850427582087252}
   status: {fileID: 5114716512651007861}
+  router: {fileID: 1799015247826664895}
 --- !u!114 &4702055588649516520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,6 +1693,19 @@ MonoBehaviour:
   health: 100
   goldAward: 50
   deathEffect: {fileID: 5711301453923240534, guid: 5a7de29cc8b6a9e45b06380da2daa7ca, type: 3}
+--- !u!114 &1799015247826664895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4aae0137ee295d43afd90349bf9cd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  route: {fileID: 0}
 --- !u!1 &150940
 GameObject:
   m_ObjectHideFlags: 0

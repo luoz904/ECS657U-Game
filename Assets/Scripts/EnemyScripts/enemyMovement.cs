@@ -5,55 +5,65 @@ using UnityEngine.UIElements;
 
 public class enemyMovement : MonoBehaviour
 {
-
-    private Transform target;
     public float startMoveSpeed = 10f;
     public float turnSpeed = 10.0f;
-    private float currentMoveSpeed;
 
     public float gravity = 5.0f;
 
+    /* private fields */
+    private EnemyController controller;
+    private Transform target;
+    private float currentMoveSpeed;
     private CharacterController moveController;
-
     private Vector3 moveDirection = Vector3.zero;
 
-    private int wavePointIndex = 0;
+    public void SetTarget(Transform _target)
+    {
+        Debug.Log("Target changed!");
+        target = _target;
+    }
 
-    private EnemyController controller;
+    public void Slow(float percentage)
+    {
+        currentMoveSpeed = startMoveSpeed * (1f - percentage);
+    }
+
 
     void Start()
     {
-        moveController = GetComponent<CharacterController>();
         controller = GetComponent<EnemyController>();
-        target = waypoints.points[wavePointIndex];
+        moveController = GetComponent<CharacterController>();
         currentMoveSpeed = startMoveSpeed;
     }
 
     void Update()
     {
+        if (target == null)
+            return;
         UnityEngine.Vector3 dir = target.position - transform.position;
-        MoveToTarget(dir);
+        Vector3 horizontalDirection = new Vector3(dir.x, 0f, dir.z);
 
-        if (dir.magnitude <= 2f)
+        MoveToTarget(horizontalDirection);
+
+        if (horizontalDirection.magnitude <= 0.05f)
         {
-            Debug.Log("Get Next waypoint!");
-            GetNextWaypoint();
+            controller.OnCloseToTarget();
         }
         currentMoveSpeed = startMoveSpeed;
     }
 
-    void MoveToTarget(Vector3 dir)
+    void MoveToTarget(Vector3 horizontalDirection)
     {
         LockOnTarget();
 
         if (moveController.isGrounded)
         {
-            moveDirection = dir.normalized * currentMoveSpeed;
+            moveDirection = horizontalDirection.normalized * currentMoveSpeed;
         }
         moveController.Move(moveDirection * Time.deltaTime);
         moveDirection.y -= gravity * Time.deltaTime;
 
-        if (dir.magnitude >= 0f)
+        if (horizontalDirection.magnitude >= 0f)
         {
             controller.OnMoveForward();
         }
@@ -67,29 +77,4 @@ public class enemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
-    void GetNextWaypoint()
-    {
-        wavePointIndex++;
-        if (wavePointIndex >= waypoints.points.Length)
-        {
-            EndPath();
-        }
-        else
-            target = waypoints.points[wavePointIndex];
-    }
-
-    void EndPath()
-    {
-        PlayerStats.DecrementLives();
-        Enemy e = GetComponent<Enemy>();
-        if (e != null)
-            PlayerStats.SurvivedRounds = e.waveNumber;
-
-        Destroy(gameObject);
-    }
-
-    public void Slow(float percentage)
-    {
-        currentMoveSpeed = startMoveSpeed * (1f - percentage);
-    }
 }
