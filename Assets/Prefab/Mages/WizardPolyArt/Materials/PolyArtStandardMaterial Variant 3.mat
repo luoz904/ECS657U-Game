@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolyArtStandardMaterial
+  m_Name: PolyArtStandardMaterial Variant 3
   m_Shader: {fileID: 4800000, guid: b3b027031f09c4b4c83228ddb863368b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -99,6 +99,6 @@ Material:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Hair: {r: 1, g: 0.3066038, b: 0.3066038, a: 0}
-    - _InnerCloth: {r: 0.031258084, g: 1, b: 0.0047169924, a: 0}
-    - _OuterChlothes: {r: 0.03945271, g: 1, b: 0.023584902, a: 0}
+    - _InnerCloth: {r: 1, g: 0.045028903, b: 0.0039215684, a: 0}
+    - _OuterChlothes: {r: 1, g: 0.07082249, b: 0.02352941, a: 0}
   m_BuildTextureStacks: []
