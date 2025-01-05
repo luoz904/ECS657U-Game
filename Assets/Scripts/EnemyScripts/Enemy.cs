@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        PlayerStats.Money += goldAward;
+        PlayerStats.SkillPoints += goldAward;
         GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(effect, 5f);
         Destroy(gameObject);
