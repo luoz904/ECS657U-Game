@@ -18,7 +18,7 @@ public class NodeBuildManager : MonoBehaviour
 
     public bool hasMageToBuild { get { return mageToBuild != null; }}
 
-    public bool hasMoneyToBuild { get { return PlayerStats.Money >= mageToBuild.cost; }}
+    public bool hasMoneyToBuild { get { return PlayerStats.SkillPoints >= mageToBuild.cost; }}
 
     void Awake()
     {
@@ -38,11 +38,11 @@ public class NodeBuildManager : MonoBehaviour
             return false;
         }
 
-        PlayerStats.Money -= mageToBuild.cost;
+        PlayerStats.SkillPoints -= mageToBuild.cost;
 
         GameObject mage = Instantiate(mageToBuild.prefab, node.transform.position, node.transform.rotation);
         if (mage != null) {
-            Debug.Log("Money build, money left " + PlayerStats.Money);
+            Debug.Log("Money build, money left " + PlayerStats.SkillPoints);
 
             GameObject effect = Instantiate(buildEffet, node.transform.position, node.transform.rotation);
 

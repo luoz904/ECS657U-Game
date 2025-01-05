@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int Money;
-    public static int Lives;
+    public static int SkillPoints;
 
-    public int startMoney = 400;
-    public int startLives = 20;
+    public int startSkillPoints = 100;
 
     public static int SurvivedRounds;
 
@@ -16,12 +14,11 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Money = startMoney;
-        Lives = startLives;
+        SkillPoints = startSkillPoints;
         SurvivedRounds = 0;
     }
 
     public static void DecrementLives() {
-        Lives--;
+        SkillPoints--;
     }
 }

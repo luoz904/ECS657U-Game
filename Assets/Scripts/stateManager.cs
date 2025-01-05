@@ -19,7 +19,7 @@ public class stateManager : MonoBehaviour
         if (GameIsOver)
             return;
         
-        if (PlayerStats.Lives <= 0)
+        if (PlayerStats.SkillPoints <= 0)
         {
             EndGame();
         }
