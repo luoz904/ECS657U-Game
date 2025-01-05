@@ -12,7 +12,7 @@ public class enemySpawner : MonoBehaviour
 
     public Transform enemyPrefab;
 
-    public Transform route;
+    private Transform route;
 
     public float timeBetweenWaves = 5f;
 
@@ -26,6 +26,7 @@ public class enemySpawner : MonoBehaviour
 
     void Start()
     {
+        route = GetComponent<Transform>();
         spawnPoint = route.GetChild(0);
         path = route.GetChild(1);
     }

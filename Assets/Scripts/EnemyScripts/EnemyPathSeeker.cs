@@ -17,7 +17,6 @@ public class EnemyPathSeeker : MonoBehaviour
 
     public void SetRoute(Transform _route)
     {
-        
         points = new Transform[_route.childCount];
         for (int i = 0; i < points.Length; ++i)
         {
@@ -28,7 +27,8 @@ public class EnemyPathSeeker : MonoBehaviour
     }
 
     public Transform GetCurrentWaypoint() {
-        target = points[wavePointIndex];
+        if (points != null)
+            target = points[wavePointIndex];
         return target;
     }
 
@@ -39,8 +39,10 @@ public class EnemyPathSeeker : MonoBehaviour
         {
             EndPath();
         }
-        else
-            target = points[wavePointIndex];
+        else {
+            if (points != null)
+                target = points[wavePointIndex];
+        }
         return target;
     }
 
