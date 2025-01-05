@@ -36,4 +36,21 @@ public class EnemyController : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void OnCreate(
+        int healthIncrement,
+        int id,
+        int waveNumber,
+        Transform path
+    )
+    {
+        Debug.Log("New controller found!");
+        status.health += healthIncrement;
+        status.id = id;
+        status.waveNumber = waveNumber;
+
+        router.SetRoute(path);
+        Transform target = router.GetCurrentWaypoint();
+        mover.SetTarget(target);
+    }
 }

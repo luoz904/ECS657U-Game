@@ -64,14 +64,7 @@ public class enemySpawner : MonoBehaviour
 
         if (enemyController != null)
         {
-            Debug.Log("New controller found!");
-            enemyController.status.health += healthIncrement;
-            enemyController.status.id = lastEnemyId;
-            enemyController.status.waveNumber = waveNumber;
-
-            enemyController.router.SetRoute(path);
-            Transform target = enemyController.router.GetCurrentWaypoint();
-            enemyController.mover.SetTarget(target);
+            enemyController.OnCreate(healthIncrement, lastEnemyId, waveNumber, path);
         }
     }
 }
