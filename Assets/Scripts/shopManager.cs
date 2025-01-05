@@ -4,32 +4,55 @@ using UnityEngine;
 
 public class shopManager : MonoBehaviour
 {
-    public MageBlueprint standardMage;
+    public MageBlueprint defaultMage;
+    public MageBlueprint greenMage;
 
-    public MageBlueprint anotherMage;
+    public MageBlueprint redMage;
 
-    public MageBlueprint superMage;
+    public MageBlueprint blueMage;
+
+    public MageBlueprint purpleMage;
 
     private NodeBuildManager buildManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        buildManager = NodeBuildManager.instance;    
+        buildManager = NodeBuildManager.instance;
     }
 
-    public void BuyStandardMage() {
+    public void BuyBaseMage()
+    {
         Debug.Log("Buy mage!");
-        buildManager.SetMageToBuild(standardMage);
+        buildManager.SetMageToBuild(greenMage);
     }
 
-    public void BuyAnotherMage() {
-        Debug.Log("Buy another mage!");
-        buildManager.SetMageToBuild(anotherMage);
-    }
-
-    public void BuySuperMage() {
+    public void BuyRedMage()
+    {
         Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(superMage);
+        buildManager.SetMageToBuild(purpleMage);
     }
+
+    public void BuyBlueMage()
+    {
+        Debug.Log("Buy another mage!");
+        buildManager.SetMageToBuild(blueMage);
+    }
+
+    public void BuyGreenMage()
+    {
+        Debug.Log("Buy super mage!");
+        buildManager.SetMageToBuild(purpleMage);
+    }
+
+    public void BuyPurpleMage()
+    {
+        Debug.Log("Buy super mage!");
+        buildManager.SetMageToBuild(purpleMage);
+    }
+
+    public void BuyLastMage() {
+        
+    }
+
 }
