@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class enemyMovement : MonoBehaviour
 {
 
     private Transform target;
     public float startMoveSpeed = 10f;
-    public float turnSpeed = 60.0f;
+    public float turnSpeed = 10.0f;
     private float currentMoveSpeed;
+
+    public float gravity = 5.0f;
+
+    private CharacterController moveController;
+
+    private Vector3 moveDirection = Vector3.zero;
 
     private int wavePointIndex = 0;
 
@@ -16,6 +23,7 @@ public class enemyMovement : MonoBehaviour
 
     void Start()
     {
+        moveController = GetComponent<CharacterController>();
         controller = GetComponent<EnemyController>();
         target = waypoints.points[wavePointIndex];
         currentMoveSpeed = startMoveSpeed;
@@ -23,21 +31,29 @@ public class enemyMovement : MonoBehaviour
 
     void Update()
     {
-        MoveToTarget();
-        LockOnTarget();
-        if (UnityEngine.Vector3.Distance(transform.position, target.position) <= 0.2f)
+        UnityEngine.Vector3 dir = target.position - transform.position;
+        MoveToTarget(dir);
+
+        if (dir.magnitude <= 2f)
         {
+            Debug.Log("Get Next waypoint!");
             GetNextWaypoint();
         }
-
         currentMoveSpeed = startMoveSpeed;
     }
 
-    void MoveToTarget()
+    void MoveToTarget(Vector3 dir)
     {
-        UnityEngine.Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * currentMoveSpeed * Time.deltaTime, Space.World);
-        if (dir.magnitude >= 0)
+        LockOnTarget();
+
+        if (moveController.isGrounded)
+        {
+            moveDirection = dir.normalized * currentMoveSpeed;
+        }
+        moveController.Move(moveDirection * Time.deltaTime);
+        moveDirection.y -= gravity * Time.deltaTime;
+
+        if (dir.magnitude >= 0f)
         {
             controller.OnMoveForward();
         }
