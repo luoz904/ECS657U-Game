@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour
 {
-    public EnemyGoblinAnimator animator;
+    public EnemyAnimator animator;
     public enemyMovement mover;
     public Enemy status;
     public EnemyPathSeeker router;

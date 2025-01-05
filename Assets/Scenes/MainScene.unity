@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5aa7bacf5cce14a984fceafa0dcac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8753619234690991415, guid: e812c04705f47d645beb13e90ec0ff93, type: 3}
+  enemyPrefab: {fileID: 8753619234690991415, guid: 8fca19392a64c124699dc5097de99277, type: 3}
   timeBetweenWaves: 5
   waveCountDownText: {fileID: 1967988044}
 --- !u!1001 &193192419
