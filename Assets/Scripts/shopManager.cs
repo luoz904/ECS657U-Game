@@ -13,46 +13,80 @@ public class shopManager : MonoBehaviour
 
     public MageBlueprint purpleMage;
 
+    public MageBlueprint lastMage;
+
     private NodeBuildManager buildManager;
+
+    public static MageBlueprint selectedMage;
 
     // Start is called before the first frame update
     void Start()
     {
         buildManager = NodeBuildManager.instance;
+        selectedMage = defaultMage;
     }
 
     public void BuyBaseMage()
     {
-        Debug.Log("Buy mage!");
-        buildManager.SetMageToBuild(defaultMage);
+        if (PlayerStats.SkillPoints >= defaultMage.cost)
+        {
+            Debug.Log("Buy mage!");
+            buildManager.SetMageToBuild(defaultMage);
+        }
+        selectedMage = defaultMage;
+
     }
 
     public void BuyRedMage()
     {
-        Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(redMage);
+        if (PlayerStats.SkillPoints >= redMage.cost)
+        {
+            Debug.Log("Buy super mage!");
+            buildManager.SetMageToBuild(redMage);
+        }
+        selectedMage = redMage;
+
     }
 
     public void BuyBlueMage()
     {
-        Debug.Log("Buy another mage!");
-        buildManager.SetMageToBuild(blueMage);
+        if (PlayerStats.SkillPoints >= blueMage.cost)
+        {
+            Debug.Log("Buy another mage!");
+            buildManager.SetMageToBuild(blueMage);
+        }
+        selectedMage = blueMage;
+
     }
 
     public void BuyGreenMage()
     {
-        Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(greenMage);
+        if (PlayerStats.SkillPoints >= greenMage.cost)
+        {
+            Debug.Log("Buy super mage!");
+            buildManager.SetMageToBuild(greenMage);
+        }
+        selectedMage = greenMage;
     }
 
     public void BuyPurpleMage()
     {
-        Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(purpleMage);
+        if (PlayerStats.SkillPoints >= purpleMage.cost)
+        {
+            Debug.Log("Buy super mage!");
+            buildManager.SetMageToBuild(purpleMage);
+
+        }
+        selectedMage = purpleMage;
     }
 
-    public void BuyLastMage() {
-        
+    public void BuyLastMage()
+    {
+        if (PlayerStats.SkillPoints >= lastMage.cost)
+        {
+            PlayerStats.hasUltimateSkill = true;
+        }
+        selectedMage = lastMage;
     }
 
 }
