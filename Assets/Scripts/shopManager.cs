@@ -24,13 +24,13 @@ public class shopManager : MonoBehaviour
     public void BuyBaseMage()
     {
         Debug.Log("Buy mage!");
-        buildManager.SetMageToBuild(greenMage);
+        buildManager.SetMageToBuild(defaultMage);
     }
 
     public void BuyRedMage()
     {
         Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(purpleMage);
+        buildManager.SetMageToBuild(redMage);
     }
 
     public void BuyBlueMage()
@@ -42,7 +42,7 @@ public class shopManager : MonoBehaviour
     public void BuyGreenMage()
     {
         Debug.Log("Buy super mage!");
-        buildManager.SetMageToBuild(purpleMage);
+        buildManager.SetMageToBuild(greenMage);
     }
 
     public void BuyPurpleMage()

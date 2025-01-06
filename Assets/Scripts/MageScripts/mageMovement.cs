@@ -8,6 +8,8 @@ public class mageMovement : MonoBehaviour
 
     public Transform target = null;
 
+     //public MageAnimator mageAnimator;
+
     private enemyMovement enemyM;
     private Enemy targetEnemy;
 

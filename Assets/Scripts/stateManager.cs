@@ -7,6 +7,7 @@ public class stateManager : MonoBehaviour
 {
     public static bool GameIsOver = false;
     public GameObject gameOverUI;
+    public GameObject gameWinUI;
 
     void Start() {
         GameIsOver = false;

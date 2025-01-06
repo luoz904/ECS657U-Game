@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 4463868907105534}
   - component: {fileID: 95538263452871118}
   - component: {fileID: 136306802490482818}
+  - component: {fileID: -6737913431690990552}
   m_Layer: 0
   m_Name: GreenWizard
   m_TagString: Untagged
@@ -723,6 +724,30 @@ CapsuleCollider:
   m_Height: 1.882848
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
+--- !u!114 &-6737913431690990552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248815240492774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9d4e2b34e8fee4aa7336060035294d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  range: 15
+  fireRate: 1
+  turnSpeed: 10
+  bulletPrefab: {fileID: 5071696582067698749, guid: f5b5cdcde735fa84bbe2e6ec71a03415, type: 3}
+  useLaser: 0
+  slowPercentage: 0.5
+  damageOverTime: 30
+  lineRenderer: {fileID: 0}
+  enemyTag: Enemy
+  partToRotate: {fileID: 4463868907105534}
+  firePoint: {fileID: 4463868907105534}
 --- !u!1 &1251583507443948
 GameObject:
   m_ObjectHideFlags: 0
