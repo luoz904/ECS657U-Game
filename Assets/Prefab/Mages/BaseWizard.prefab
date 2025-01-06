@@ -737,10 +737,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 20
+  range: 10
   fireRate: 0.5
-  turnSpeed: 3
-  bulletPrefab: {fileID: 5071696582067698749, guid: 02ea2d5158b66cf4a8b92ca88a01e24c, type: 3}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 5071696582067698749, guid: 8cdd79d83c58d5444932c6bc7eb5d940, type: 3}
   useLaser: 0
   slowPercentage: 0.5
   damageOverTime: 30
