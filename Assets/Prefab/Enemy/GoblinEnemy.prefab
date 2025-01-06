@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   waveNumber: 0
-  health: 100
-  goldAward: 50
+  health: 5
+  goldAward: 2
   deathEffect: {fileID: 5711301453923240534, guid: 5a7de29cc8b6a9e45b06380da2daa7ca, type: 3}
 --- !u!114 &1799015247826664895
 MonoBehaviour:
